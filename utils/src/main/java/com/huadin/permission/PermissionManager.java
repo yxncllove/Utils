@@ -139,18 +139,19 @@ public class PermissionManager
    */
   public void onPermissionResult(String[] permissions, int[] results)
   {
-
+    if (mListener == null)
+    {
+      throw new IllegalArgumentException("permission listener cannot be null");
+    }
     for (int i = 0; i < results.length; i++)
     {
       if (results[i] != PackageManager.PERMISSION_GRANTED)
       {
-        if (mListener != null)
-        {
-          mListener.onShowRationale(permissions[i]);
-          break;
-        }
+        mListener.onShowRationale(permissions[i]);
+        return;
       }
     }
+    mListener.onGranted();
   }
 
   /*检测 object 类型*/
