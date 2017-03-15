@@ -1,4 +1,4 @@
-package com.huadin.utils;
+package com.huadin.sample;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

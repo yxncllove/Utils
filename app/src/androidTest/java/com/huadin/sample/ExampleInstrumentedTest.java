@@ -1,4 +1,4 @@
-package com.huadin.utils;
+package com.huadin.sample;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
