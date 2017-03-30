@@ -9,6 +9,8 @@ import android.util.Log;
 import com.huadin.permission.PermissionListener;
 import com.huadin.permission.PermissionManager;
 
+import static com.huadin.util.NotNullUtils.checkNotNull;
+
 public class MainActivity extends AppCompatActivity implements PermissionListener
 {
   private PermissionManager mManager;
@@ -56,5 +58,11 @@ public class MainActivity extends AppCompatActivity implements PermissionListene
   public void onShowRationale(String permissions)
   {
     Log.e(TAG, "onShowRationale: 授权失败");
+  }
+
+  String mMsg;
+  public void test(String msg)
+  {
+    mMsg = checkNotNull(msg,"msg cannot be null");
   }
 }
