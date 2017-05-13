@@ -16,7 +16,7 @@ public class AMUtils
   private static final String FIXED_TELEPHONE = "[0-9]{7,12}";
   /*Letters plus numbers*/
 //  private static final String USER_NAME = "[A-Za-z0-9_\\-\\u4e00-\\u9fa5]{6,20}";
-  private static final String USER_NAME = "[A-Za-z0-9_\\-]{6,20}";
+  private static final String USER_NAME = "[A-Za-z0-9_\\-]{6,16}";
 
   private static final String STRING_FILTER = "[^A-Za-z0-9_\\-]";
 
@@ -87,7 +87,7 @@ public class AMUtils
 
   public static boolean validatePassword(String str)
   {
-    return str == null || str.length() < 6 || str.length() > 20;
+    return str == null || str.length() < 6 || str.length() > 16;
   }
 
   public static boolean isUserName(String loginName)
