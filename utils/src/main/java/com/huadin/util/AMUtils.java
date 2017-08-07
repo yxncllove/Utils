@@ -13,13 +13,13 @@ public class AMUtils
 {
   /*Phone number regular expression*/
   private static final String MOBILE_PHONE_PATTERN = "^((13[0-9])|(15[0-9])|(18[0-9])|(14[7])|(17[0678]))\\d{8}$";
-  private static final String FIXED_TELEPHONE = "[0-9]{7,12}";
+  private static final String FIXED_TELEPHONE = "[0-9-()（）]{7,18}";
   /*Letters plus numbers*/
 //  private static final String USER_NAME = "[A-Za-z0-9_\\-\\u4e00-\\u9fa5]{6,20}";
   private static final String USER_NAME = "[A-Za-z0-9_\\-]{6,16}";
 
   private static final String STRING_FILTER = "[^A-Za-z0-9_\\-]";
-
+  private static final String EMAIL = "\\w[-\\w.+]*@([A-Za-z0-9][-A-Za-z0-9]+\\.)+[A-Za-z]{2,14}";
   /**
    * Check the phone number is in line with the format
    *
@@ -94,6 +94,13 @@ public class AMUtils
   {
     Pattern patter = Pattern.compile(USER_NAME);
     Matcher m = patter.matcher(loginName);
+    return m.matches();
+  }
+
+  public static boolean validateEmail(String email)
+  {
+    Pattern patter = Pattern.compile(EMAIL);
+    Matcher m = patter.matcher(email);
     return m.matches();
   }
 
